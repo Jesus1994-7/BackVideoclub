@@ -20,6 +20,9 @@ module.exports = {
       popularity: {
         type: Sequelize.FLOAT
       },
+      release_date: {
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

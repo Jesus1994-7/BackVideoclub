@@ -17,7 +17,8 @@ module.exports = {
                 title: m.title,
                 overview: m.overview,
                 poster_path: m.poster_path,
-                popularity: m.popularity
+                popularity: m.popularity,
+                release_date : m.release_date
             }));
             //inserta las primeras 20 movies
             return queryInterface.bulkInsert('Movies', movies, {});

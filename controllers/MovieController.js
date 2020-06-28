@@ -57,7 +57,21 @@ const MovieController = {
             });
             res.status(200).send(popular)
         } catch (error) {
-            
+            res.status(500).send({ message : 'Error obteniendo peliculas populares'})
+        }
+    },
+    async lastMovies(req,res) {
+        try {
+            const lastMovies = await Movie.findAll({
+                where : {
+                    release_date:{
+                        [Op.between]: ['2018-01-01', '2020-06-27']
+                    }
+                }
+            });
+            res.status(200).send(lastMovies)
+        } catch (error) {
+            res.status(500).send({ message : 'Error buscando las ultimas peliculas'});
         }
     }
 }
