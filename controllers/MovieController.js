@@ -15,7 +15,7 @@ const MovieController = {
     async searchtitle(req,res) {
         try {
             const { title } = req.params
-            const movie = await Movie.findOne({
+            const movie = await Movie.findAll({
                 where : {
                     title : title
                 }
