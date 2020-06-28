@@ -1,4 +1,5 @@
 const { Movie, Order } = require('../models');
+const { Op } = require('sequelize');
 
 const MovieController = {
     async getAllMovies(req,res) {
@@ -43,6 +44,20 @@ const MovieController = {
         } catch (error) {
             console.log(error)
             res.status(500).send({ message : 'Error actualizando pelicula'});
+        }
+    },
+    async mostPopular(req,res) {
+        try {
+            const popular = await Movie.findAll({
+                where : {
+                    popularity:{
+                        [Op.gte] : 60
+                    }
+                }
+            });
+            res.status(200).send(popular)
+        } catch (error) {
+            
         }
     }
 }
